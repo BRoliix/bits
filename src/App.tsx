@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Events from "./pages/Events";
 import Sponsors from "./pages/SponsorsPage";  // This is correctly importing the page
-import Speakers from "./pages/Speakers";
 import Agenda from "./pages/Agenda";
 import Registration from "./pages/Registration";
 import Contact from "./pages/Contact";
@@ -25,7 +24,6 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/events" element={<Events />} />
           <Route path="/sponsors" element={<Sponsors />} />
-          <Route path="/speakers" element={<Speakers />} />
           <Route path="/agenda" element={<Agenda />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/contact" element={<Contact />} />
