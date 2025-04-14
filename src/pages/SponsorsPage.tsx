@@ -165,7 +165,16 @@ const SponsorsPage = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="neon-button">Download Brochure</Button>
+          <Button asChild className="neon-button mx-2">
+            <a 
+              href="/documents/BTF Brochure.pdf" 
+              target="_blank"
+              rel="noopener noreferrer"
+              download="BTF Brochure.pdf"
+            >
+              Download Brochure
+            </a>
+          </Button>
             <Button asChild variant="outline" className="border-white/20 hover:bg-white/5">
               <a href="mailto:btf.sponsorship@dubai.bits-pilani.ac.in">Contact Sponsorship Team</a>
             </Button>
