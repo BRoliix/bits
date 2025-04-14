@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import Sponsors from '@/components/Sponsors';
 import Highlights from '@/components/Highlights';
 import Footer from '@/components/Footer';
+import Aurora from '@/components/Aurora';
 
 const Index = () => {
   useEffect(() => {
@@ -20,6 +21,14 @@ const Index = () => {
 
   return (
     <main className="bg-black text-white min-h-screen relative overflow-x-hidden">
+      {/* Aurora background */}
+      <Aurora 
+        colorStops={["#8B5CF6", "#FF94B4", "#3A29FF"]} 
+        blend={0.5}
+        amplitude={1.0}
+        speed={0.5}
+      />
+      
       {/* Global scanline effect */}
       <div className="scanline fixed top-0 left-0 pointer-events-none"></div>
       
