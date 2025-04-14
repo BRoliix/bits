@@ -107,7 +107,6 @@ const Hero = () => {
         }}
       />
 
-<<<<<<< Updated upstream
       <div
         className="absolute inset-0 bg-[url('/grid-pattern.png')] opacity-20 z-0"
         style={{ backgroundSize: '100px 100px', transform: `translateY(${offsetY * 0.2}px)` }}
@@ -123,13 +122,6 @@ const Hero = () => {
         <div className="relative container mx-auto px-4 h-full flex flex-col justify-center items-center text-center z-20">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-2 text-white transition-all duration-1000">
             BITS <span className="text-[#009dff]">TECH</span> FEST
-=======
-      {/* Content */}
-      <div className="relative container h-full mx-auto px-4 flex flex-col justify-center items-center text-center z-10">
-        <div className={`transform transition-all duration-1000 ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-heading">
-            BITS <span className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-heading">TECH FEST</span> 2025
->>>>>>> Stashed changes
           </h1>
           <p className="text-xl md:text-2xl mb-4 text-[#009dff]">
             April 30 & May 10, 2025
