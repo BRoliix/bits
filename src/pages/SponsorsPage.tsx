@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Check } from 'lucide-react';
+import { Check, Users } from 'lucide-react';
 
 const SponsorsPage = () => {
   // Sponsorship package details
@@ -136,7 +136,7 @@ const SponsorsPage = () => {
             
             <div className="text-center">
               <div className="mb-4 inline-flex items-center justify-center h-14 w-14 rounded-full bg-neon-green/20 text-neon-green">
-                <Badge size={24} />
+                <Badge className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-bold mb-2">Brand Visibility</h3>
               <p className="text-white/70">
