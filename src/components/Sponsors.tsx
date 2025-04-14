@@ -27,8 +27,8 @@ const Sponsors = () => {
   return (
     <section className="py-20 relative bg-black">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 animate-glow">
-          OUR <span className="text-neon-purple">SPONSORS</span>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-heading">
+          OUR SPONSORS
         </h2>
         
         {/* Title Sponsors */}

@@ -29,9 +29,11 @@ const Highlights = () => {
   return (
     <section id="highlights" className="py-20 relative bg-black">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 animate-glow">
-          QUICK <span className="text-neon-purple">HIGHLIGHTS</span>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 gradient-heading">
+          QUICK HIGHLIGHTS
         </h2>
+        <br/>
+      
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {highlightItems.map((item, index) => (

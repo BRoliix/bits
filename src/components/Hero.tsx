@@ -58,14 +58,7 @@ const BitsTechFestLogo: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
       });
 
       // Glowing text effect
-      ctx.save();
-      ctx.font = 'bold 50px Orbitron';
-      ctx.textAlign = 'center';
-      ctx.fillStyle = '#009dff';
-      ctx.shadowColor = '#00baff';
-      ctx.shadowBlur = 30;
-      ctx.fillText('BITS TECH FEST', width / 2, height / 2 + 10);
-      ctx.restore();
+      
 
       frame++;
       if (frame < 180) {
@@ -120,9 +113,15 @@ const Hero = () => {
         </div>
       ) : (
         <div className="relative container mx-auto px-4 h-full flex flex-col justify-center items-center text-center z-20">
-          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-heading">
-            BITS TECH FEST
-          </h1>
+          <div className="leading-none"> {/* Tightest line spacing container */}
+            <h1 className="text-5xl md:text-5xl lg:text-[10rem] font-bold transition-all duration-1000 gradient-heading mb-0"> {/* mb-0 removes bottom margin */}
+              BITS TECH FEST
+            </h1>
+            <p className="text-sm md:text-base lg:text-lg text-gray-300 font-medium mt-1"> {/* mt-1 adds minimal top margin */}
+              Birla Institute of Technology And Science, Dubai, United Arab Emirates
+            </p>
+          </div>
+          <br/>
           <p className="text-xl md:text-2xl mb-4 text-[#009dff]">
             April 30 & May 10, 2025
           </p>
@@ -138,8 +137,8 @@ const Hero = () => {
             </Button>
           </div>
 
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer">
-            <a href="#overview" className="flex flex-col items-center text-white/70 hover:text-[#009dff] transition-colors">
+          <div className="absolute text-center bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer">
+            <a href="#overview" className="flex flex-col items-center text-center text-white/70 hover:text-[#009dff] transition-colors">
               <span className="text-sm mb-2">Discover More</span>
               <ChevronDown className="h-6 w-6" />
             </a>

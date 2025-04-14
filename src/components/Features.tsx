@@ -75,8 +75,7 @@ const Features = () => {
       <div className="container mx-auto px-4 relative z-10" ref={featuresRef}>
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 inline-block relative">
-            <span className="animate-glow">GAME-CHANGING FEATURES</span>
-            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-[2px] w-24 bg-neon-purple"></span>
+            <span className="mb-4 gradient-heading">GAME-CHANGING FEATURES</span>
           </h2>
           <p className="text-white/70 max-w-2xl mx-auto">
             Our platform offers everything you need for the ultimate gaming experience.

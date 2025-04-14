@@ -45,9 +45,10 @@ const Countdown = ({ targetDate }: { targetDate: string }) => {
       <div className="absolute inset-0 bg-cyber-grid opacity-10 z-[-1]"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gradient-purple-pink">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-4 gradient-heading">
           EVENT COUNTDOWN
         </h2>
+        <br/>
         
         <div className="flex flex-wrap justify-center gap-4 md:gap-8">
           {Object.entries(timeLeft).map(([unit, value]) => (
