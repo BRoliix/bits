@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -6,142 +5,215 @@ import { Button } from '@/components/ui/button';
 import { Calendar, Clock, MapPin, Download, BookmarkPlus, Filter } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import '../styles/gradients.css';
-// Sample agenda data
-const agendaDay1 = [
+
+// Updated agenda data for April 30th
+const agenda = [
   {
     id: 1,
-    time: "09:00 AM - 10:00 AM",
-    title: "Registration & Welcome Coffee",
-    venue: "Main Entrance",
+    time: "8:00 AM - 8:20 AM",
+    title: "Registration & Welcome Breakfast",
+    venue: "Main Lobby",
     type: "Registration",
-    description: "Pick up your attendee badge and enjoy morning refreshments"
+    description: "Check-in and enjoy morning refreshments"
   },
   {
     id: 2,
-    time: "10:00 AM - 10:30 AM",
-    title: "Opening Ceremony",
-    venue: "Main Auditorium",
+    time: "8:20 AM - 8:30 AM",
+    title: "Lamp Lighting & Opening Remarks",
+    venue: "Auditorium",
     type: "Ceremony",
-    description: "Official inauguration of BITS Tech Fest 2025 with welcome addresses from BITS officials and sponsors"
+    description: "Traditional lamp lighting and welcome address"
   },
   {
     id: 3,
-    time: "10:30 AM - 11:30 AM",
-    title: "The Future of Generative AI in Space Exploration",
-    venue: "Main Auditorium",
+    time: "8:30 AM - 8:45 AM",
+    title: "Keynote: Cosmic Intelligence",
+    venue: "Auditorium",
     type: "Keynote",
-    speaker: "Dr. Sarah Johnson, Google DeepMind",
-    description: "An exploration of how generative AI is transforming space exploration and satellite technology"
+    description: "Opening keynote on this year's theme"
   },
+  // Club Events (Parallel Sessions)
   {
     id: 4,
-    time: "11:45 AM - 01:00 PM",
-    title: "AI Hackathon: Kickoff",
-    venue: "Lab Complex",
-    type: "Hackathon",
-    description: "Teams receive problem statements and begin their 6-hour hackathon journey"
+    time: "8:45 AM - 12:15 PM",
+    title: "Crack The Penguin",
+    venue: "Auditorium",
+    type: "Competition",
+    club: "LUG",
+    description: "Linux-based technical challenge"
   },
   {
     id: 5,
-    time: "01:00 PM - 02:00 PM",
-    title: "Networking Lunch",
-    venue: "Campus Lawn",
-    type: "Break",
-    description: "Buffet lunch with opportunities to network with speakers, sponsors and fellow attendees"
+    time: "8:45 AM - 12:15 PM",
+    title: "Clue Connect",
+    venue: "Auditorium",
+    type: "Competition",
+    club: "WIE",
+    description: "Technical puzzle-solving competition"
   },
   {
     id: 6,
-    time: "02:00 PM - 03:00 PM",
-    title: "Building the Next Generation of Space Technologies",
-    venue: "Conference Hall A",
-    type: "Speaker Session",
-    speaker: "Ahmed Al-Mansoori, UAE Space Agency",
-    description: "Insights into the UAE's plans for advancing space technology over the next decade"
+    time: "8:45 AM - 12:15 PM",
+    title: "STEM-Grid Challenge",
+    venue: "Auditorium",
+    type: "Competition",
+    club: "SWE",
+    description: "Engineering design challenge"
   },
   {
     id: 7,
-    time: "03:15 PM - 05:30 PM",
-    title: "Workshop: Building AI Models for Space Data",
-    venue: "Computer Lab 2",
-    type: "Workshop",
-    description: "Hands-on workshop on processing and analyzing satellite imagery using machine learning"
+    time: "8:45 AM - 12:15 PM",
+    title: "Decrypting Challenge",
+    venue: "Auditorium",
+    type: "Competition",
+    club: "Oh-Crop",
+    description: "Cryptography and security competition"
   },
   {
     id: 8,
-    time: "06:00 PM - 07:30 PM",
-    title: "AI Hackathon: Presentations & Judging",
-    venue: "Lab Complex",
+    time: "8:45 AM - 12:15 PM",
+    title: "Tech Taboo",
+    venue: "Auditorium",
     type: "Competition",
-    description: "Teams present their solutions to judges and audiences"
-  }
-];
-
-const agendaDay2 = [
+    club: "ACM-W",
+    description: "Technology-themed word game for schools"
+  },
   {
     id: 9,
-    time: "10:00 AM - 10:45 AM",
-    title: "Day 2 Welcome & Recap",
-    venue: "Main Auditorium",
-    type: "Opening",
-    description: "Brief recap of Day 1 highlights and overview of Day 2 schedule"
+    time: "8:45 AM - 12:15 PM",
+    title: "Marshmallow Tower Challenge",
+    venue: "Auditorium",
+    type: "Competition",
+    club: "Skyline",
+    description: "Creative engineering challenge"
   },
   {
     id: 10,
-    time: "11:00 AM - 12:00 PM",
-    title: "AI-Powered Startups in the Space Economy",
-    venue: "Main Auditorium",
-    type: "Keynote",
-    speaker: "Maria Rodriguez, SpaceAI Ventures",
-    description: "How startups are leveraging AI to create new business models in the space industry"
+    time: "8:45 AM - 12:15 PM",
+    title: "Luck with Machines",
+    venue: "Auditorium",
+    type: "Competition",
+    club: "AOEE",
+    description: "Probability and machine learning challenge"
   },
   {
     id: 11,
-    time: "12:15 PM - 01:30 PM",
-    title: "Panel Discussion: AI Ethics in Space Exploration",
-    venue: "Conference Hall A",
-    type: "Panel",
-    description: "Industry experts discuss ethical considerations of deploying AI in space missions"
+    time: "8:45 AM - 12:15 PM",
+    title: "Fizz Quiz",
+    venue: "Auditorium",
+    type: "Competition",
+    club: "IEI",
+    description: "Technical quiz competition"
   },
   {
     id: 12,
-    time: "01:30 PM - 02:30 PM",
-    title: "Lunch Break",
-    venue: "Campus Lawn",
-    type: "Break",
-    description: "Networking lunch with special exhibition from sponsors"
+    time: "8:45 AM - 12:15 PM",
+    title: "Hydro Purity Quest",
+    venue: "Auditorium",
+    type: "Competition",
+    club: "AiCHE",
+    description: "Chemical engineering challenge"
   },
   {
     id: 13,
-    time: "02:45 PM - 03:15 PM",
-    title: "Robotics Exhibition",
-    venue: "Exhibition Hall",
-    type: "Exhibition",
-    description: "Showcasing cutting-edge robotics projects from students and faculty"
+    time: "8:45 AM - 12:15 PM",
+    title: "Blood Grouping",
+    venue: "Bio Lab",
+    type: "Workshop",
+    club: "Chimera",
+    description: "Hands-on biology workshop"
   },
   {
     id: 14,
-    time: "03:30 PM - 04:30 PM",
-    title: "AI Systems for Deep Space Missions",
-    venue: "Conference Hall B",
-    type: "Speaker Session",
-    speaker: "Dr. Rajiv Patel, NASA JPL",
-    description: "Technical insights into autonomous AI systems deployed in deep space missions"
+    time: "TBD",
+    title: "Satellite Tracking",
+    venue: "Ground Station",
+    type: "Demonstration",
+    club: "Mahasat",
+    description: "Live satellite tracking demonstration"
   },
   {
     id: 15,
-    time: "05:00 PM - 06:00 PM",
-    title: "Award Ceremony & Closing Remarks",
-    venue: "Main Auditorium",
+    time: "10:00 AM - 11:00 AM",
+    title: "Space Docking",
+    venue: "Ground Station",
+    type: "Simulation",
+    club: "Supernova",
+    description: "Spacecraft docking simulation"
+  },
+  {
+    id: 16,
+    time: "9:00 AM - 11:30 AM",
+    title: "No-Code Triwizard Hackathon",
+    venue: "Lab 332",
+    type: "Hackathon",
+    club: "MTC",
+    description: "No-code development competition"
+  },
+  {
+    id: 17,
+    time: "9:00 AM - 10:30 AM",
+    title: "Escape The Matrix - CTF",
+    venue: "Lab 333",
+    type: "Competition",
+    club: "ACM",
+    description: "Capture the flag cybersecurity challenge"
+  },
+  // Closing Ceremony
+  {
+    id: 18,
+    time: "12:15 PM - 12:20 PM",
+    title: "Welcome & Opening Remarks",
+    venue: "Auditorium",
     type: "Ceremony",
-    description: "Recognition of hackathon winners, outstanding projects, and closing of BITS Tech Fest 2025"
+    description: "Introduction to closing ceremony"
+  },
+  {
+    id: 19,
+    time: "12:20 PM - 12:30 PM",
+    title: "Prize Distribution to Winners",
+    venue: "Auditorium",
+    type: "Ceremony",
+    description: "Award ceremony for competition winners"
+  },
+  {
+    id: 20,
+    time: "12:30 PM - 12:40 PM",
+    title: "Felicitation of Sponsors & Guests",
+    venue: "Auditorium",
+    type: "Ceremony",
+    description: "Acknowledgement of sponsors and special guests"
+  },
+  {
+    id: 21,
+    time: "12:40 PM - 12:50 PM",
+    title: "Volunteer Acknowledgements",
+    venue: "Auditorium",
+    type: "Ceremony",
+    description: "Recognizing the organizing team and volunteers"
+  },
+  {
+    id: 22,
+    time: "12:50 PM - 12:55 PM",
+    title: "Vote of Thanks",
+    venue: "Auditorium",
+    type: "Ceremony",
+    description: "Closing remarks and thanks"
+  },
+  {
+    id: 23,
+    time: "12:55 PM - 1:00 PM",
+    title: "Group Photo & Closing Notes",
+    venue: "Auditorium",
+    type: "Ceremony",
+    description: "Final group photo and event conclusion"
   }
 ];
 
 // Event types for filtering
-const eventTypes = ["All", "Keynote", "Speaker Session", "Panel", "Workshop", "Hackathon", "Competition", "Exhibition", "Break", "Ceremony"];
+const eventTypes = ["All", "Ceremony", "Keynote", "Competition", "Workshop", "Hackathon", "Demonstration", "Simulation", "Registration"];
 
 const Agenda = () => {
-  const [selectedDay, setSelectedDay] = useState("day1");
   const [selectedType, setSelectedType] = useState("All");
   const [bookmarkedEvents, setBookmarkedEvents] = useState<number[]>([]);
 
@@ -155,13 +227,12 @@ const Agenda = () => {
   };
 
   // Filter events based on selected type
-  const filterEvents = (events: typeof agendaDay1) => {
-    if (selectedType === "All") return events;
-    return events.filter(event => event.type === selectedType);
+  const filterEvents = () => {
+    if (selectedType === "All") return agenda;
+    return agenda.filter(event => event.type === selectedType);
   };
 
-  const filteredDay1 = filterEvents(agendaDay1);
-  const filteredDay2 = filterEvents(agendaDay2);
+  const filteredEvents = filterEvents();
 
   return (
     <div className="bg-black text-white min-h-screen">
@@ -174,7 +245,7 @@ const Agenda = () => {
           <span className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-heading">AGENDA</span>
         </h1>
         <p className="text-lg text-center mb-8 max-w-2xl mx-auto">
-          Explore the complete schedule for BITS Tech Fest 2025. Plan your visit and don't miss the exciting sessions.
+          BITS Tech Fest 2025 - April 30th Timetable. Plan your day and don't miss the exciting events.
         </p>
         
         {/* Filter and Download Section */}
@@ -198,151 +269,73 @@ const Agenda = () => {
           </Button>
         </div>
         
-        {/* Tabs for Day 1 and Day 2 */}
-        <Tabs defaultValue="day1" value={selectedDay} onValueChange={setSelectedDay} className="mb-12">
-          <TabsList className="w-full max-w-md mx-auto grid grid-cols-2 bg-black/50 border border-white/10">
-            <TabsTrigger 
-              value="day1"
-              className="data-[state=active]:bg-neon-purple/20 data-[state=active]:text-neon-purple data-[state=active]:shadow-none"
+        {/* Agenda Items */}
+        <div className="space-y-4">
+          {filteredEvents.map(event => (
+            <div 
+              key={event.id} 
+              className="glass-card p-4 md:p-6 transition-all duration-300 hover:shadow-[0_0_15px_rgba(139,92,246,0.3)]"
             >
-              April 30, 2025
-            </TabsTrigger>
-            <TabsTrigger 
-              value="day2"
-              className="data-[state=active]:bg-neon-purple/20 data-[state=active]:text-neon-purple data-[state=active]:shadow-none"
-            >
-              May 10, 2025
-            </TabsTrigger>
-          </TabsList>
-          
-          <TabsContent value="day1" className="mt-6">
-            <div className="space-y-4">
-              {filteredDay1.map(event => (
-                <div 
-                  key={event.id} 
-                  className="glass-card p-4 md:p-6 transition-all duration-300 hover:shadow-[0_0_15px_rgba(139,92,246,0.3)]"
-                >
-                  <div className="flex flex-col md:flex-row gap-4 justify-between">
-                    <div className="md:w-1/4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Clock size={16} className="text-neon-blue" />
-                        <span className="text-white font-medium">{event.time}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin size={16} className="text-neon-green" />
-                        <span className="text-white/70">{event.venue}</span>
-                      </div>
-                    </div>
-                    
-                    <div className="md:w-3/4">
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <h3 className="text-xl font-bold text-white">{event.title}</h3>
-                          {event.speaker && (
-                            <p className="text-neon-purple mb-2">{event.speaker}</p>
-                          )}
-                        </div>
-                        <Button 
-                          variant="ghost" 
-                          size="icon" 
-                          className={`ml-2 ${bookmarkedEvents.includes(event.id) ? 'text-neon-orange' : 'text-white/50'}`}
-                          onClick={() => toggleBookmark(event.id)}
-                        >
-                          <BookmarkPlus size={18} />
-                        </Button>
-                      </div>
-                      
-                      <p className="text-white/70 mt-2">{event.description}</p>
-                      
-                      <div className="mt-3">
-                        <span className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs rounded-full">
-                          {event.type}
-                        </span>
-                      </div>
-                    </div>
+              <div className="flex flex-col md:flex-row gap-4 justify-between">
+                <div className="md:w-1/4">
+                  <div className="flex items-center gap-2 mb-2">
+                    <Clock size={16} className="text-neon-blue" />
+                    <span className="text-white font-medium">{event.time}</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPin size={16} className="text-neon-green" />
+                    <span className="text-white/70">{event.venue}</span>
                   </div>
                 </div>
-              ))}
-              
-              {filteredDay1.length === 0 && (
-                <div className="text-center py-8">
-                  <p className="text-white/60">No events match your filter criteria.</p>
-                  <Button 
-                    variant="outline" 
-                    className="mt-4 border-white/20 hover:bg-white/5"
-                    onClick={() => setSelectedType("All")}
-                  >
-                    Reset Filter
-                  </Button>
-                </div>
-              )}
-            </div>
-          </TabsContent>
-          
-          <TabsContent value="day2" className="mt-6">
-            <div className="space-y-4">
-              {filteredDay2.map(event => (
-                <div 
-                  key={event.id} 
-                  className="glass-card p-4 md:p-6 transition-all duration-300 hover:shadow-[0_0_15px_rgba(139,92,246,0.3)]"
-                >
-                  <div className="flex flex-col md:flex-row gap-4 justify-between">
-                    <div className="md:w-1/4">
-                      <div className="flex items-center gap-2 mb-2">
-                        <Clock size={16} className="text-neon-blue" />
-                        <span className="text-white font-medium">{event.time}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin size={16} className="text-neon-green" />
-                        <span className="text-white/70">{event.venue}</span>
-                      </div>
+                
+                <div className="md:w-3/4">
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="text-xl font-bold text-white">{event.title}</h3>
+                      {event.club && (
+                        <p className="text-neon-purple mb-2">Organized by: {event.club}</p>
+                      )}
                     </div>
-                    
-                    <div className="md:w-3/4">
-                      <div className="flex justify-between items-start">
-                        <div>
-                          <h3 className="text-xl font-bold text-white">{event.title}</h3>
-                          {event.speaker && (
-                            <p className="text-neon-purple mb-2">{event.speaker}</p>
-                          )}
-                        </div>
-                        <Button 
-                          variant="ghost" 
-                          size="icon" 
-                          className={`ml-2 ${bookmarkedEvents.includes(event.id) ? 'text-neon-orange' : 'text-white/50'}`}
-                          onClick={() => toggleBookmark(event.id)}
-                        >
-                          <BookmarkPlus size={18} />
-                        </Button>
-                      </div>
-                      
-                      <p className="text-white/70 mt-2">{event.description}</p>
-                      
-                      <div className="mt-3">
-                        <span className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs rounded-full">
-                          {event.type}
-                        </span>
-                      </div>
-                    </div>
+                    <Button 
+                      variant="ghost" 
+                      size="icon" 
+                      className={`ml-2 ${bookmarkedEvents.includes(event.id) ? 'text-neon-orange' : 'text-white/50'}`}
+                      onClick={() => toggleBookmark(event.id)}
+                    >
+                      <BookmarkPlus size={18} />
+                    </Button>
+                  </div>
+                  
+                  <p className="text-white/70 mt-2">{event.description}</p>
+                  
+                  <div className="mt-3 flex gap-2">
+                    <span className="inline-block px-3 py-1 bg-white/10 text-white/80 text-xs rounded-full">
+                      {event.type}
+                    </span>
+                    {event.club && (
+                      <span className="inline-block px-3 py-1 bg-neon-purple/20 text-neon-purple text-xs rounded-full">
+                        {event.club}
+                      </span>
+                    )}
                   </div>
                 </div>
-              ))}
-              
-              {filteredDay2.length === 0 && (
-                <div className="text-center py-8">
-                  <p className="text-white/60">No events match your filter criteria.</p>
-                  <Button 
-                    variant="outline" 
-                    className="mt-4 border-white/20 hover:bg-white/5"
-                    onClick={() => setSelectedType("All")}
-                  >
-                    Reset Filter
-                  </Button>
-                </div>
-              )}
+              </div>
             </div>
-          </TabsContent>
-        </Tabs>
+          ))}
+          
+          {filteredEvents.length === 0 && (
+            <div className="text-center py-8">
+              <p className="text-white/60">No events match your filter criteria.</p>
+              <Button 
+                variant="outline" 
+                className="mt-4 border-white/20 hover:bg-white/5"
+                onClick={() => setSelectedType("All")}
+              >
+                Reset Filter
+              </Button>
+            </div>
+          )}
+        </div>
         
         {/* My Schedule Section */}
         {bookmarkedEvents.length > 0 && (
@@ -350,16 +343,10 @@ const Agenda = () => {
             <h2 className="text-2xl font-bold mb-6">My Schedule</h2>
             
             <div className="space-y-4">
-              {[...agendaDay1, ...agendaDay2]
+              {agenda
                 .filter(event => bookmarkedEvents.includes(event.id))
                 .sort((a, b) => {
-                  // Sort by day first (day1 events first), then by time
-                  const dayA = agendaDay1.some(e => e.id === a.id) ? 1 : 2;
-                  const dayB = agendaDay1.some(e => e.id === b.id) ? 1 : 2;
-                  
-                  if (dayA !== dayB) return dayA - dayB;
-                  
-                  // Extract start times for comparison (assuming format "HH:MM AM/PM - ...")
+                  // Extract start times for comparison (assuming format "HH:MM AM/PM")
                   const timeA = a.time.split(' - ')[0];
                   const timeB = b.time.split(' - ')[0];
                   return timeA.localeCompare(timeB);
@@ -369,13 +356,16 @@ const Agenda = () => {
                     <div className="flex justify-between items-start">
                       <div>
                         <div className="flex items-center gap-2 text-sm text-white/70 mb-1">
-                          <Calendar size={14} />
-                          <span>{agendaDay1.some(e => e.id === event.id) ? 'April 30, 2025' : 'May 10, 2025'}</span>
-                          <Clock size={14} className="ml-2" />
+                          <Clock size={14} />
                           <span>{event.time}</span>
+                          <MapPin size={14} className="ml-2" />
+                          <span>{event.venue}</span>
                         </div>
                         <h4 className="font-semibold">{event.title}</h4>
-                        <p className="text-sm text-white/70">{event.venue}</p>
+                        {event.club && (
+                          <p className="text-sm text-neon-purple">By {event.club}</p>
+                        )}
+                        <p className="text-sm text-white/70 mt-1">{event.description}</p>
                       </div>
                       <Button 
                         variant="ghost" 
