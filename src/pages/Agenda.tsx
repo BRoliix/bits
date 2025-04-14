@@ -380,11 +380,7 @@ const Agenda = () => {
                 ))
               }
             </div>
-            
-            <div className="mt-6 flex justify-center">
-              <Button variant="outline" className="border-white/20 hover:bg-white/5">
-                Export My Schedule
-              </Button>
+            <div className="mt-6 flex justify-center"> 
             </div>
           </div>
         )}
