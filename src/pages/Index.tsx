@@ -1,13 +1,42 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useEffect } from 'react';
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import Games from '@/components/Games';
+import Features from '@/components/Features';
+import About from '@/components/About';
+import Footer from '@/components/Footer';
 
 const Index = () => {
+  useEffect(() => {
+    // Add scroll listener for parallax effects
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      document.documentElement.style.setProperty('--scroll-y', `${scrollY}px`);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <main className="bg-black text-white min-h-screen relative overflow-x-hidden">
+      {/* Global scanline effect */}
+      <div className="scanline fixed top-0 left-0 pointer-events-none"></div>
+      
+      {/* Glow effects */}
+      <div className="fixed top-0 left-0 w-full h-screen overflow-hidden pointer-events-none z-[-1]">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-purple/10 rounded-full filter blur-[120px]"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-neon-blue/10 rounded-full filter blur-[100px]"></div>
       </div>
-    </div>
+      
+      <Navbar />
+      <Hero />
+      <Games />
+      <Features />
+      <About />
+      <Footer />
+    </main>
   );
 };
 

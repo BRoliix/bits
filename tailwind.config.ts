@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,16 +53,14 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+				// Neon theme colors
+				neon: {
+					purple: '#8B5CF6',
+					blue: '#36D1DC',
+					green: '#00F260',
+					pink: '#D946EF',
+					orange: '#F97316',
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -70,26 +69,65 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' },
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' },
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-20px)' },
+				},
+				'pulse-neon': {
+					'0%, 100%': { 
+						opacity: '1',
+						boxShadow: '0 0 15px 0px rgba(139, 92, 246, 0.7)'
 					},
-					to: {
-						height: '0'
-					}
+					'50%': { 
+						opacity: '0.7',
+						boxShadow: '0 0 30px 5px rgba(139, 92, 246, 0.8)'
+					},
+				},
+				'gradient-background': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' },
+				},
+				'glow': {
+					'0%, 100%': { textShadow: '0 0 10px #8B5CF6, 0 0 20px #8B5CF6' },
+					'50%': { textShadow: '0 0 20px #D946EF, 0 0 30px #D946EF' },
+				},
+				'fade-in-up': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(20px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					},
+				},
+				'scanline': {
+					'0%': { transform: 'translateY(0)' },
+					'100%': { transform: 'translateY(100vh)' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-neon': 'pulse-neon 3s ease-in-out infinite',
+				'gradient-background': 'gradient-background 15s ease infinite',
+				'glow': 'glow 3s ease-in-out infinite',
+				'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
+				'scanline': 'scanline 8s linear infinite',
+			},
+			backgroundImage: {
+				'cyber-grid': "url('/grid-pattern.png')",
+				'hero-pattern': "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/hero-bg.png')",
+			},
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
