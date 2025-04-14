@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -50,13 +49,14 @@ const Contact = () => {
       <Navbar />
       
       <main className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 animate-glow">
-          <span className="text-neon-purple">CONTACT US</span>
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 text-neon-purple">
+          CONTACT US
         </h1>
         <p className="text-lg text-center mb-12 max-w-2xl mx-auto">
           Have questions about BITS Tech Fest 2025? Get in touch with our team and we'll be happy to help.
         </p>
         
+        {/* Rest of the contact page content remains the same */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Form */}
           <div className="glass-card">
@@ -141,21 +141,12 @@ const Contact = () => {
                     <Mail size={20} className="text-neon-purple" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">General Inquiries</h3>
-                    <a href="mailto:contact.btf@dubai.bits-pilani.ac.in" className="text-white/70 hover:text-neon-purple transition-colors">
+                    <h3 className="font-semibold mb-1">Email</h3>
+                    <a 
+                      href="mailto:contact.btf@dubai.bits-pilani.ac.in" 
+                      className="text-white/70 hover:text-neon-purple transition-colors"
+                    >
                       contact.btf@dubai.bits-pilani.ac.in
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="bg-neon-green/20 p-3 rounded-full">
-                    <Mail size={20} className="text-neon-green" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1">Sponsorship Queries</h3>
-                    <a href="mailto:btf.sponsorship@dubai.bits-pilani.ac.in" className="text-white/70 hover:text-neon-green transition-colors">
-                      btf.sponsorship@dubai.bits-pilani.ac.in
                     </a>
                   </div>
                 </div>
@@ -166,7 +157,10 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Phone</h3>
-                    <a href="tel:+971586290281" className="text-white/70 hover:text-neon-blue transition-colors">
+                    <a 
+                      href="tel:+971586290281" 
+                      className="text-white/70 hover:text-neon-blue transition-colors"
+                    >
                       +971 586290281
                     </a>
                   </div>
@@ -178,11 +172,16 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1">Address</h3>
-                    <p className="text-white/70">
+                    <a
+                      href="https://www.google.com/maps/dir//Dubai+Campus+-+Academic+City+-+Dubai+-+United+Arab+Emirates/@25.1314665,55.3376815,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3e5f63ecaf0b7683:0x178903db8ef63bc7!2m2!1d55.420083!2d25.1314893?entry=ttu&g_ep=EgoyMDI1MDQwOS4wIKXMDSoASAFQAw%3D%3D"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white/70 hover:text-neon-orange transition-colors"
+                    >
                       BITS Pilani Dubai Campus,<br />
                       Dubai International Academic City,<br />
                       Dubai, UAE
-                    </p>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -219,7 +218,7 @@ const Contact = () => {
           <h2 className="text-2xl font-bold mb-6 text-center">Location</h2>
           <div className="aspect-video w-full rounded-lg overflow-hidden border border-white/10">
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.1785200727284!2d55.54272595!3d25.22127085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f61327a0f7e49%3A0xefcf7a0989306552!2sBITS%20Pilani%20Dubai%20Campus!5e0!3m2!1sen!2sae!4v1620374890561!5m2!1sen!2sae" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.1785200727284!2d55.54272595!3d25.22127085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f63ecaf0b7683%3A0x178903db8ef63bc7!2sBITS%20Pilani%20Dubai%20Campus!5e0!3m2!1sen!2sae!4v1620374890561!5m2!1sen!2sae" 
               width="100%" 
               height="100%" 
               style={{ border: 0 }} 
