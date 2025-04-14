@@ -4,6 +4,9 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Sponsors from '@/components/Sponsors';
 import Highlights from '@/components/Highlights';
+import Features from '@/components/Features';
+import AboutEvent from '@/components/AboutEvent';
+import Countdown from '@/components/Countdown';
 import Footer from '@/components/Footer';
 import Aurora from '@/components/Aurora';
 
@@ -40,7 +43,10 @@ const Index = () => {
       
       <Navbar />
       <Hero />
+      <Countdown targetDate="2025-04-30T09:00:00" />
       <Highlights />
+      <AboutEvent />
+      <Features />
       <Sponsors />
       <Footer />
     </main>

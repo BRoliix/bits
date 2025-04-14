@@ -53,13 +53,16 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				// Neon theme colors
+				// Neon theme colors expanded
 				neon: {
 					purple: '#8B5CF6',
 					blue: '#36D1DC',
 					green: '#00F260',
 					pink: '#D946EF',
 					orange: '#F97316',
+					cyan: '#2DD4BF',
+					yellow: '#FACC15',
+					red: '#EF4444',
 				},
 			},
 			borderRadius: {
@@ -112,6 +115,18 @@ export default {
 				'scanline': {
 					'0%': { transform: 'translateY(0)' },
 					'100%': { transform: 'translateY(100vh)' },
+				},
+				'text-glitch': {
+					'0%, 100%': { 
+						textShadow: '0.05em 0 0 rgba(255, 0, 0, 0.75), -0.025em -0.05em 0 rgba(0, 255, 0, 0.75), 0.025em 0.05em 0 rgba(0, 0, 255, 0.75)'
+					},
+					'50%': {
+						textShadow: '0.025em 0.05em 0 rgba(255, 0, 0, 0.75), 0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75)'
+					}
+				},
+				'rotate-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' }
 				}
 			},
 			animation: {
@@ -123,10 +138,14 @@ export default {
 				'glow': 'glow 3s ease-in-out infinite',
 				'fade-in-up': 'fade-in-up 0.6s ease-out forwards',
 				'scanline': 'scanline 8s linear infinite',
+				'text-glitch': 'text-glitch 3s ease-in-out infinite',
+				'rotate-slow': 'rotate-slow 15s linear infinite'
 			},
 			backgroundImage: {
 				'cyber-grid': "url('/grid-pattern.png')",
 				'hero-pattern': "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/hero-bg.png')",
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
 			},
 		}
 	},
