@@ -1,86 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import '../styles/gradients.css';
-interface Particle {
-  x: number;
-  y: number;
-  size: number;
-  color: string;
-  vx: number;
-  vy: number;
-}
-
-const BitsTechFestLogo: React.FC<{ onFinish: () => void }> = ({ onFinish }) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [loaded, setLoaded] = useState(false);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    const width = (canvas.width = 600);
-    const height = (canvas.height = 300);
-    const particles: Particle[] = [];
-
-    for (let i = 0; i < 700; i++) {
-      particles.push({
-        x: Math.random() * width,
-        y: Math.random() * height,
-        size: Math.random() * 2 + 1,
-        color: '#009dff',
-        vx: (Math.random() - 0.5) * 1.5,
-        vy: (Math.random() - 0.5) * 1.5,
-      });
-    }
-
-    let frame = 0;
-
-    const animate = () => {
-      ctx.fillStyle = 'rgba(0,0,0,0.15)';
-      ctx.fillRect(0, 0, width, height);
-
-      particles.forEach((p) => {
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0 || p.x > width) p.vx *= -1;
-        if (p.y < 0 || p.y > height) p.vy *= -1;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.fill();
-      });
-
-      // Glowing text effect
-      
-
-      frame++;
-      if (frame < 180) {
-        requestAnimationFrame(animate);
-      } else {
-        setLoaded(true);
-        setTimeout(onFinish, 800);
-      }
-    };
-
-    animate();
-  }, [onFinish]);
-
-  return (
-    <div className="flex justify-center items-center w-full h-full bg-black">
-      <canvas ref={canvasRef} className="w-full max-w-[600px] h-auto" />
-    </div>
-  );
-};
 
 const Hero = () => {
-  const [animationDone, setAnimationDone] = useState(false);
   const [offsetY, setOffsetY] = useState(0);
 
   useEffect(() => {
@@ -91,6 +15,7 @@ const Hero = () => {
 
   return (
     <section className="relative w-full h-screen overflow-hidden bg-black">
+      {/* Background elements */}
       <div
         className="absolute inset-0 bg-black opacity-90 z-0"
         style={{
@@ -107,44 +32,39 @@ const Hero = () => {
 
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black opacity-80 z-0" />
 
-      {!animationDone ? (
-        <div className="absolute inset-0 flex justify-center items-center z-10">
-          <BitsTechFestLogo onFinish={() => setAnimationDone(true)} />
+      {/* Hero content */}
+      <div className="relative container mx-auto px-4 h-full flex flex-col justify-center items-center text-center z-20">
+        <div className="leading-none">
+          <h1 className="text-5xl md:text-5xl lg:text-[10rem] font-bold gradient-heading mb-0">
+            BITS TECH FEST
+          </h1>
+          <p className="text-sm md:text-base lg:text-lg text-gray-300 font-medium mt-1">
+            Birla Institute of Technology And Science, Dubai, United Arab Emirates
+          </p>
         </div>
-      ) : (
-        <div className="relative container mx-auto px-4 h-full flex flex-col justify-center items-center text-center z-20">
-          <div className="leading-none"> {/* Tightest line spacing container */}
-            <h1 className="text-5xl md:text-5xl lg:text-[10rem] font-bold transition-all duration-1000 gradient-heading mb-0"> {/* mb-0 removes bottom margin */}
-              BITS TECH FEST
-            </h1>
-            <p className="text-sm md:text-base lg:text-lg text-gray-300 font-medium mt-1"> {/* mt-1 adds minimal top margin */}
-              Birla Institute of Technology And Science, Dubai, United Arab Emirates
-            </p>
-          </div>
-          <br/>
-          <p className="text-xl md:text-2xl mb-4 text-[#009dff]">
-            April 30 & May 10, 2025
-          </p>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-white/80">
-            Transform Your Business with Cutting-Edge AI, Machine Learning, and Data Analytics
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <Button asChild className="bg-[#009dff] hover:bg-[#00b0ff] text-white w-full sm:w-auto min-w-[150px]">
-              <Link to="/registration">REGISTER NOW</Link>
-            </Button>
-            <Button asChild variant="outline" className="border-white/20 bg-transparent hover:bg-white/5 hover:text-[#009dff] w-full sm:w-auto min-w-[150px]">
-              <Link to="/events">EXPLORE EVENTS</Link>
-            </Button>
-          </div>
+        <br/>
+        <p className="text-xl md:text-2xl mb-4 text-[#009dff]">
+          April 30 & May 10, 2025
+        </p>
+        <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-white/80">
+          Transform Your Business with Cutting-Edge AI, Machine Learning, and Data Analytics
+        </p>
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <Button asChild className="bg-[#009dff] hover:bg-[#00b0ff] text-white w-full sm:w-auto min-w-[150px]">
+            <Link to="/registration">REGISTER NOW</Link>
+          </Button>
+          <Button asChild variant="outline" className="border-white/20 bg-transparent hover:bg-white/5 hover:text-[#009dff] w-full sm:w-auto min-w-[150px]">
+            <Link to="/events">EXPLORE EVENTS</Link>
+          </Button>
+        </div>
 
-          <div className="absolute text-center bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer">
-            <a href="#overview" className="flex flex-col items-center text-center text-white/70 hover:text-[#009dff] transition-colors">
-              <span className="text-sm mb-2">Discover More</span>
-              <ChevronDown className="h-6 w-6" />
-            </a>
-          </div>
+        <div className="absolute text-center bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer">
+          <a href="#overview" className="flex flex-col items-center text-center text-white/70 hover:text-[#009dff] transition-colors">
+            <span className="text-sm mb-2">Discover More</span>
+            <ChevronDown className="h-6 w-6" />
+          </a>
         </div>
-      )}
+      </div>
     </section>
   );
 };
