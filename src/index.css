@@ -79,13 +79,6 @@
     will-change: transform;
   }
   
-  .scanline {
-    @apply w-full h-[2px] bg-neon-purple/30 absolute left-0 opacity-70 z-10;
-    box-shadow: 0 0 15px 1px theme('colors.neon.purple');
-    animation: scanline 8s linear infinite;
-    pointer-events: none;
-  }
-  
   .perspective-container {
     perspective: 1000px;
   }
@@ -117,6 +110,31 @@
   .rotate-y-5 {
     transform: rotateY(5deg);
   }
+
+  /* New gradient background classes */
+  .bg-gradient-purple-blue {
+    background: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 100%);
+  }
+  
+  .bg-gradient-purple-pink {
+    background: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
+  }
+  
+  .bg-gradient-blue-green {
+    background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
+  }
+  
+  .text-gradient-purple-pink {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-neon-purple to-neon-pink;
+  }
+  
+  .text-gradient-blue-green {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-neon-blue to-neon-green;
+  }
+  
+  .text-gradient-gold {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-500;
+  }
 }
 
 .glass-card {
@@ -147,11 +165,6 @@
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
-}
-
-@keyframes scanline {
-  0% { top: -100%; }
-  100% { top: 100%; }
 }
 
 @keyframes glitch {

@@ -19,9 +19,6 @@ const Hero = () => {
 
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      {/* Scanline effect */}
-      <div className="scanline"></div>
-      
       {/* Parallax background layers */}
       <div 
         className="parallax-layer bg-black opacity-90"
