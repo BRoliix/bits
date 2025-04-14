@@ -2,9 +2,8 @@
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import Games from '@/components/Games';
-import Features from '@/components/Features';
-import About from '@/components/About';
+import Sponsors from '@/components/Sponsors';
+import Highlights from '@/components/Highlights';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -32,9 +31,8 @@ const Index = () => {
       
       <Navbar />
       <Hero />
-      <Games />
-      <Features />
-      <About />
+      <Highlights />
+      <Sponsors />
       <Footer />
     </main>
   );

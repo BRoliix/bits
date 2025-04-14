@@ -1,16 +1,35 @@
 
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Events', path: '/events' },
+    { name: 'Speakers', path: '/speakers' },
+    { name: 'Agenda', path: '/agenda' },
+    { name: 'Sponsors', path: '/sponsors' },
+    { name: 'Contact', path: '/contact' },
+  ];
+
+  // Check if the current path matches the link path
+  const isActive = (path: string) => {
+    if (path === '/' && location.pathname === '/') {
+      return true;
+    }
+    return location.pathname === path;
+  };
+
+  // Add scroll listener
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 10) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -22,96 +41,75 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav
-      className={cn(
-        'fixed top-0 left-0 w-full z-50 transition-all duration-300',
-        isScrolled ? 'bg-black/80 backdrop-blur-md py-2' : 'bg-transparent py-4'
-      )}
+    <header 
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'py-2 bg-black/80 shadow-lg backdrop-blur-md border-b border-white/10' 
+          : 'py-4 bg-transparent'
+      }`}
     >
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between">
-          <a href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-white animate-glow">
-              NEON<span className="text-neon-purple">VOID</span>
-            </span>
-          </a>
-
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            <a href="#games" className="text-white/80 hover:text-neon-purple transition-colors">
-              Games
-            </a>
-            <a href="#features" className="text-white/80 hover:text-neon-purple transition-colors">
-              Features
-            </a>
-            <div className="relative group">
-              <button className="flex items-center text-white/80 hover:text-neon-purple transition-colors">
-                Community <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
-              <div className="absolute left-0 mt-2 w-48 rounded-md shadow-lg hidden group-hover:block">
-                <div className="glass-card rounded-md py-1">
-                  <a href="#" className="block px-4 py-2 text-sm text-white/80 hover:text-neon-purple">Forums</a>
-                  <a href="#" className="block px-4 py-2 text-sm text-white/80 hover:text-neon-purple">Discord</a>
-                  <a href="#" className="block px-4 py-2 text-sm text-white/80 hover:text-neon-purple">Tournaments</a>
-                </div>
-              </div>
-            </div>
-            <a href="#about" className="text-white/80 hover:text-neon-purple transition-colors">
-              About
-            </a>
-          </div>
-
-          <div className="hidden md:block">
-            <Button className="neon-button">PLAY NOW</Button>
-          </div>
-
-          {/* Mobile menu button */}
-          <button
-            className="md:hidden text-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X /> : <Menu />}
-          </button>
+      <nav className="container mx-auto px-4 flex justify-between items-center">
+        {/* Logo */}
+        <Link to="/" className="text-2xl font-bold text-white flex items-center">
+          <span className="text-white">BITS</span>
+          <span className="text-neon-purple">TECH</span>
+          <span className="text-white">FEST</span>
+        </Link>
+        
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              className={`text-sm hover:text-neon-purple transition-colors ${
+                isActive(link.path) ? 'text-neon-purple font-medium' : 'text-white/80'
+              }`}
+            >
+              {link.name}
+            </Link>
+          ))}
+          
+          <Button asChild className="neon-button ml-4">
+            <Link to="/registration">Register</Link>
+          </Button>
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden glass-card mt-4 rounded-md p-4 animate-fade-in-up">
-            <div className="flex flex-col space-y-4">
-              <a
-                href="#games"
-                className="text-white hover:text-neon-purple transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Games
-              </a>
-              <a
-                href="#features"
-                className="text-white hover:text-neon-purple transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Features
-              </a>
-              <a
-                href="#community"
-                className="text-white hover:text-neon-purple transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Community
-              </a>
-              <a
-                href="#about"
-                className="text-white hover:text-neon-purple transition-colors"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About
-              </a>
-              <Button className="neon-button w-full">PLAY NOW</Button>
-            </div>
-          </div>
-        )}
+        
+        {/* Mobile Menu Button */}
+        <button 
+          className="md:hidden text-white focus:outline-none"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </nav>
+      
+      {/* Mobile Navigation */}
+      <div 
+        className={`md:hidden absolute top-full left-0 w-full bg-black/95 backdrop-blur-lg border-b border-white/10 shadow-xl transition-all duration-300 ${
+          isMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+        } overflow-hidden`}
+      >
+        <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              className={`py-2 ${
+                isActive(link.path) ? 'text-neon-purple font-medium' : 'text-white/80'
+              }`}
+              onClick={() => setIsMenuOpen(false)}
+            >
+              {link.name}
+            </Link>
+          ))}
+          
+          <Button asChild className="neon-button w-full mt-4">
+            <Link to="/registration" onClick={() => setIsMenuOpen(false)}>Register</Link>
+          </Button>
+        </div>
       </div>
-    </nav>
+    </header>
   );
 };
 

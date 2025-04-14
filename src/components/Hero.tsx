@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   const [offsetY, setOffsetY] = useState(0);
@@ -52,27 +53,33 @@ const Hero = () => {
       {/* Content */}
       <div className="relative container h-full mx-auto px-4 flex flex-col justify-center items-center text-center z-10">
         <div className={`transform transition-all duration-1000 ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-glow">
-            ENTER THE <span className="text-neon-purple">NEON VOID</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-2 animate-glow">
+            BITS <span className="text-neon-purple">TECH FEST</span> 2025
           </h1>
           
+          <p className="text-xl md:text-2xl mb-4 text-neon-blue animate-glow">
+            April 30 & May 10, 2025
+          </p>
+          
           <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-white/80 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
-            Experience gaming like never before with stunning graphics, 
-            immersive worlds and cutting-edge gameplay. The future of gaming begins here.
+            Cosmic Intelligence: Where Algorithms Meet the Stars
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <Button className="neon-button w-full sm:w-auto min-w-[150px]">
-              PLAY NOW
+            <Button asChild className="neon-button w-full sm:w-auto min-w-[150px]">
+              <Link to="/registration">REGISTER NOW</Link>
             </Button>
-            <Button variant="outline" className="border-white/20 bg-transparent hover:bg-white/5 hover:text-neon-blue w-full sm:w-auto min-w-[150px]">
-              WATCH TRAILER
+            <Button asChild variant="outline" className="border-white/20 bg-transparent hover:bg-white/5 hover:text-neon-blue w-full sm:w-auto min-w-[150px]">
+              <Link to="/events">EXPLORE EVENTS</Link>
+            </Button>
+            <Button asChild variant="outline" className="border-white/20 bg-transparent hover:bg-white/5 hover:text-neon-green w-full sm:w-auto min-w-[150px]">
+              <a href="#" download>DOWNLOAD BROCHURE</a>
             </Button>
           </div>
         </div>
 
         <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-float cursor-pointer">
-          <a href="#games" className="flex flex-col items-center text-white/70 hover:text-neon-purple transition-colors">
+          <a href="#highlights" className="flex flex-col items-center text-white/70 hover:text-neon-purple transition-colors">
             <span className="text-sm mb-2">Discover More</span>
             <ChevronDown className="h-6 w-6" />
           </a>

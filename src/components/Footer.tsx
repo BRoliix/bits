@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Facebook, Twitter, Instagram, Youtube, Twitch } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Facebook, Twitter, Instagram, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -15,47 +16,55 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-1">
             <h3 className="text-2xl font-bold mb-4 animate-glow">
-              NEON<span className="text-neon-purple">VOID</span>
+              BITS<span className="text-neon-purple">TECH</span>FEST
             </h3>
             <p className="text-white/70 mb-4">
-              Redefining the future of gaming with cutting-edge technology and immersive experiences.
+              Cosmic Intelligence: Where Algorithms Meet the Stars
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-white/70 hover:text-neon-purple transition-colors">
-                <Facebook size={18} />
-              </a>
-              <a href="#" className="text-white/70 hover:text-neon-purple transition-colors">
-                <Twitter size={18} />
-              </a>
-              <a href="#" className="text-white/70 hover:text-neon-purple transition-colors">
+              <a href="https://www.instagram.com/bitstechfest" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-neon-purple transition-colors">
                 <Instagram size={18} />
               </a>
-              <a href="#" className="text-white/70 hover:text-neon-purple transition-colors">
-                <Youtube size={18} />
+              <a href="https://www.linkedin.com/company/bits-tech-fest" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-neon-purple transition-colors">
+                <Linkedin size={18} />
               </a>
-              <a href="#" className="text-white/70 hover:text-neon-purple transition-colors">
-                <Twitch size={18} />
+              <a href="mailto:contact.btf@dubai.bits-pilani.ac.in" className="text-white/70 hover:text-neon-purple transition-colors">
+                <Mail size={18} />
               </a>
             </div>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Platform</h4>
+            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-white/70 hover:text-neon-purple transition-colors">Games</a></li>
-              <li><a href="#" className="text-white/70 hover:text-neon-purple transition-colors">Features</a></li>
-              <li><a href="#" className="text-white/70 hover:text-neon-purple transition-colors">Tournaments</a></li>
-              <li><a href="#" className="text-white/70 hover:text-neon-purple transition-colors">Community</a></li>
+              <li><Link to="/" className="text-white/70 hover:text-neon-purple transition-colors">Home</Link></li>
+              <li><Link to="/events" className="text-white/70 hover:text-neon-purple transition-colors">Events</Link></li>
+              <li><Link to="/speakers" className="text-white/70 hover:text-neon-purple transition-colors">Speakers</Link></li>
+              <li><Link to="/agenda" className="text-white/70 hover:text-neon-purple transition-colors">Agenda</Link></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="text-lg font-semibold mb-4">Support</h4>
+            <h4 className="text-lg font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-white/70 hover:text-neon-purple transition-colors">Help Center</a></li>
-              <li><a href="#" className="text-white/70 hover:text-neon-purple transition-colors">Contact Us</a></li>
-              <li><a href="#" className="text-white/70 hover:text-neon-purple transition-colors">FAQs</a></li>
-              <li><a href="#" className="text-white/70 hover:text-neon-purple transition-colors">System Requirements</a></li>
+              <li className="flex items-center gap-2">
+                <Mail size={16} className="text-neon-purple" />
+                <a href="mailto:contact.btf@dubai.bits-pilani.ac.in" className="text-white/70 hover:text-neon-purple transition-colors">
+                  contact.btf@dubai.bits-pilani.ac.in
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone size={16} className="text-neon-purple" />
+                <a href="tel:+971586290281" className="text-white/70 hover:text-neon-purple transition-colors">
+                  +971 586290281
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Mail size={16} className="text-neon-purple" />
+                <a href="mailto:btf.sponsorship@dubai.bits-pilani.ac.in" className="text-white/70 hover:text-neon-purple transition-colors">
+                  btf.sponsorship@dubai.bits-pilani.ac.in
+                </a>
+              </li>
             </ul>
           </div>
           
@@ -64,19 +73,19 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><a href="#" className="text-white/70 hover:text-neon-purple transition-colors">Terms of Service</a></li>
               <li><a href="#" className="text-white/70 hover:text-neon-purple transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-white/70 hover:text-neon-purple transition-colors">Refund Policy</a></li>
-              <li><a href="#" className="text-white/70 hover:text-neon-purple transition-colors">Cookies</a></li>
+              <li><a href="#" className="text-white/70 hover:text-neon-purple transition-colors">Cookie Policy</a></li>
+              <li><Link to="/contact" className="text-white/70 hover:text-neon-purple transition-colors">Contact Us</Link></li>
             </ul>
           </div>
         </div>
         
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/50 text-sm">
-            &copy; {new Date().getFullYear()} NeonVoid Gaming. All rights reserved.
+            &copy; BITS Pilani Dubai {new Date().getFullYear()} All rights reserved.
           </p>
           <div className="mt-4 md:mt-0">
             <a href="#" className="text-white/50 text-sm hover:text-neon-purple transition-colors">
-              Created with passion for gamers worldwide
+              Made with 💜 by BITS Tech Fest Team
             </a>
           </div>
         </div>
