@@ -45,7 +45,7 @@ const Countdown = ({ targetDate }: { targetDate: string }) => {
       <div className="absolute inset-0 bg-cyber-grid opacity-10 z-[-1]"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 text-gradient-purple-pink">
           EVENT COUNTDOWN
         </h2>
         

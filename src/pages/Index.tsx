@@ -32,9 +32,6 @@ const Index = () => {
         speed={0.5}
       />
       
-      {/* Global scanline effect */}
-      <div className="scanline fixed top-0 left-0 pointer-events-none"></div>
-      
       {/* Glow effects */}
       <div className="fixed top-0 left-0 w-full h-screen overflow-hidden pointer-events-none z-[-1]">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-neon-purple/10 rounded-full filter blur-[120px]"></div>
