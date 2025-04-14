@@ -38,16 +38,18 @@ const Hero = () => {
           <h1 className="text-5xl md:text-5xl lg:text-[10rem] font-bold gradient-heading mb-0">
             BITS TECH FEST
           </h1>
-          <p className="text-sm md:text-base lg:text-lg text-gray-300 font-medium mt-1">
-            Birla Institute of Technology And Science, Dubai, United Arab Emirates
-          </p>
+          
         </div>
         <br/>
         <p className="text-xl md:text-2xl mb-4 text-[#009dff]">
           April 30 & May 10, 2025
         </p>
+        <p className="text-sm md:text-base lg:text-lg text-gray-300 font-medium mt-1">
+            Birla Institute of Technology And Science, Dubai, United Arab Emirates
+          </p>
         <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-white/80">
-          Transform Your Business with Cutting-Edge AI, Machine Learning, and Data Analytics
+        Where the pioneers in technology unite to shape the future.
+
         </p>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <Button asChild className="bg-[#009dff] hover:bg-[#00b0ff] text-white w-full sm:w-auto min-w-[150px]">
