@@ -51,7 +51,7 @@ const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
   <img
-    src="public/logo1.png"
+    src="/bits.png"
     alt="BITS TechFest Logo"
     className="h-12 w-auto transition-transform duration-300 hover:scale-110 drop-shadow-[0_0_10px_rgba(0,157,255,0.6)]"
   />
