@@ -56,7 +56,9 @@ const Hero = () => {
           <Button asChild variant="outline" className="border-white/20 bg-transparent hover:bg-white/5 hover:text-[#009dff] w-full sm:w-auto min-w-[150px]">
             <Link to="/events">EXPLORE EVENTS</Link>
           </Button>
+          
         </div>
+
 
         <div className="absolute text-center bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer">
           <a href="#overview" className="flex flex-col items-center text-center text-white/70 hover:text-[#009dff] transition-colors">
