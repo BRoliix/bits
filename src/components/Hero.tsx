@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-
+import '../styles/gradients.css';
 interface Particle {
   x: number;
   y: number;
@@ -120,8 +120,8 @@ const Hero = () => {
         </div>
       ) : (
         <div className="relative container mx-auto px-4 h-full flex flex-col justify-center items-center text-center z-20">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-2 text-white transition-all duration-1000">
-            BITS <span className="text-[#009dff]">TECH</span> FEST
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-heading">
+            BITS TECH FEST
           </h1>
           <p className="text-xl md:text-2xl mb-4 text-[#009dff]">
             April 30 & May 10, 2025
