@@ -49,11 +49,14 @@ const Navbar = () => {
     >
       <nav className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
-        <Link to="/" className="text-2xl font-bold text-white flex items-center">
-          <span className="text-white">BITS</span>
-          <span className="text-neon-purple">TECH</span>
-          <span className="text-white">FEST</span>
-        </Link>
+        <Link to="/" className="flex items-center gap-2">
+  <img
+    src="public/logo1.png"
+    alt="BITS TechFest Logo"
+    className="h-12 w-auto transition-transform duration-300 hover:scale-110 drop-shadow-[0_0_10px_rgba(0,157,255,0.6)]"
+  />
+</Link>
+
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
