@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin, Send, Linkedin, Instagram } from 'lucide-react';
+import '../styles/gradients.css';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -49,7 +50,7 @@ const Contact = () => {
       <Navbar />
       
       <main className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 text-neon-purple">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-heading">
           CONTACT US
         </h1>
         <p className="text-lg text-center mb-12 max-w-2xl mx-auto">

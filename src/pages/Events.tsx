@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Search, Filter, Calendar, Users, MapPin } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-
+import '../styles/gradients.css';
 // Sample event data
 const events = [
   {
@@ -85,8 +85,8 @@ const Events = () => {
       <Navbar />
       
       <main className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 animate-glow">
-          <span className="text-neon-purple">EVENTS</span>
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-heading">
+          <span className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-heading">EVENTS</span>
         </h1>
         <p className="text-lg text-center mb-12 max-w-2xl mx-auto">
           Discover the exciting lineup of workshops, hackathons, competitions and speaker sessions at BITS Tech Fest 2025.

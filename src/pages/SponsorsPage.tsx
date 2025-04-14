@@ -5,6 +5,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Check, Users } from 'lucide-react';
+import '../styles/gradients.css';
 
 const SponsorsPage = () => {
   // Sponsorship package details
@@ -82,8 +83,8 @@ const SponsorsPage = () => {
       <Navbar />
       
       <main className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 animate-glow">
-          <span className="text-neon-purple">SPONSORSHIP</span> OPPORTUNITIES
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-heading">
+          <span className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-heading">SPONSORSHIP</span> OPPORTUNITIES
         </h1>
         <p className="text-lg text-center mb-12 max-w-2xl mx-auto">
           Partner with BITS Tech Fest 2025 and showcase your brand to thousands of tech enthusiasts, industry professionals, and future talent.

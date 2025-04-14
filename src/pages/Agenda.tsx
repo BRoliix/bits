@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Calendar, Clock, MapPin, Download, BookmarkPlus, Filter } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-
+import '../styles/gradients.css';
 // Sample agenda data
 const agendaDay1 = [
   {
@@ -170,8 +170,8 @@ const Agenda = () => {
       <Navbar />
       
       <main className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 animate-glow">
-          <span className="text-neon-purple">AGENDA</span>
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-heading">
+          <span className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-heading">AGENDA</span>
         </h1>
         <p className="text-lg text-center mb-8 max-w-2xl mx-auto">
           Explore the complete schedule for BITS Tech Fest 2025. Plan your visit and don't miss the exciting sessions.
