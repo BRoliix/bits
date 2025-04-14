@@ -72,8 +72,8 @@ const Registration = () => {
       <Navbar />
       
       <main className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 animate-glow">
-          <span className="text-neon-purple">REGISTRATION</span>
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-heading">
+          REGISTRATION
         </h1>
         <p className="text-lg text-center mb-12 max-w-2xl mx-auto">
           Register for BITS Tech Fest 2025 and be part of the cosmic intelligence revolution.
