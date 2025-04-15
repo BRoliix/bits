@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -50,13 +49,12 @@ const Navbar = () => {
       <nav className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2">
-  <img
-    src="/bits.png"
-    alt="BITS TechFest Logo"
-    className="h-12 w-auto transition-transform duration-300 hover:scale-110 drop-shadow-[0_0_10px_rgba(0,157,255,0.6)]"
-  />
-</Link>
-
+          <img
+            src="/bits.png"
+            alt="BITS TechFest Logo"
+            className="h-12 w-auto transition-transform duration-300 hover:scale-110 drop-shadow-[0_0_10px_rgba(243,45,0,0.6)]"
+          />
+        </Link>
         
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
@@ -64,15 +62,15 @@ const Navbar = () => {
             <Link
               key={link.name}
               to={link.path}
-              className={`text-sm hover:text-neon-purple transition-colors ${
-                isActive(link.path) ? 'text-neon-purple font-medium' : 'text-white/80'
+              className={`text-sm hover:text-orange-500 transition-colors ${
+                isActive(link.path) ? 'text-[#f32d00] font-medium' : 'text-white/80'
               }`}
             >
               {link.name}
             </Link>
           ))}
           
-          <Button asChild className="neon-button ml-4">
+          <Button asChild className="bg-[#f32d00] hover:bg-[#f32d00]/90 ml-4">
             <Link to="/registration">Register</Link>
           </Button>
         </div>
@@ -98,7 +96,7 @@ const Navbar = () => {
               key={link.name}
               to={link.path}
               className={`py-2 ${
-                isActive(link.path) ? 'text-neon-purple font-medium' : 'text-white/80'
+                isActive(link.path) ? 'text-[#f32d00] font-medium' : 'text-white/80'
               }`}
               onClick={() => setIsMenuOpen(false)}
             >
@@ -106,7 +104,7 @@ const Navbar = () => {
             </Link>
           ))}
           
-          <Button asChild className="neon-button w-full mt-4">
+          <Button asChild className="bg-[#f32d00] hover:bg-[#f32d00]/90 w-full mt-4">
             <Link to="/registration" onClick={() => setIsMenuOpen(false)}>Register</Link>
           </Button>
         </div>

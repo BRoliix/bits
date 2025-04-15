@@ -28,8 +28,8 @@ const Hero = () => {
         className="absolute inset-0 bg-black opacity-90 z-0"
         style={{
           transform: `translateY(${offsetY * 0.1}px)`,
-          backgroundImage: `radial-gradient(circle at 30% 40%, rgba(0, 157, 255, 0.2) 0%, transparent 40%),
-                            radial-gradient(circle at 80% 60%, rgba(0, 157, 255, 0.1) 0%, transparent 30%)`,
+          backgroundImage: `radial-gradient(circle at 30% 40%, rgba(243, 45, 0, 0.2) 0%, transparent 40%),
+                            radial-gradient(circle at 80% 60%, rgba(243, 45, 0, 0.1) 0%, transparent 30%)`,
         }}
       />
 
@@ -55,7 +55,7 @@ const Hero = () => {
           <h1 className="text-5xl md:text-5xl lg:text-[10rem] font-bold gradient-heading mb-0">
             BITS TECH FEST
           </h1>
-          <p className="text-xl md:text-2xl mb-4 text-[#009dff]">
+          <p className="text-xl md:text-2xl mb-4 text-[#f32d00]">
             April 30 & May 10, 2025
           </p>
           <p className="text-sm md:text-base lg:text-lg text-gray-300 font-medium mt-1">
@@ -67,10 +67,10 @@ const Hero = () => {
         </div>
         
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-          <Button asChild className="bg-[#009dff] hover:bg-[#00b0ff] text-white w-full sm:w-auto min-w-[150px]">
+          <Button asChild className="bg-[#f32d00] hover:bg-[#f32d00]/90 text-white w-full sm:w-auto min-w-[150px]">
             <Link to="/registration">REGISTER NOW</Link>
           </Button>
-          <Button asChild variant="outline" className="border-white/20 bg-transparent hover:bg-white/5 hover:text-[#009dff] w-full sm:w-auto min-w-[150px]">
+          <Button asChild variant="outline" className="border-white/20 bg-transparent hover:bg-white/5 hover:text-[#f32d00] w-full sm:w-auto min-w-[150px]">
             <Link to="/events">EXPLORE EVENTS</Link>
           </Button>
         </div>
