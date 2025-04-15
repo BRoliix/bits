@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Search, Filter, Calendar, Users, MapPin } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import '../styles/gradients.css';
+import { Link } from 'react-router-dom';
 
 // Updated event data for April 30th (single day event)
 const events = [
@@ -226,7 +227,9 @@ const Events = () => {
                 </CardContent>
                 
                 <CardFooter className="pt-0">
-                  <Button className="w-full neon-button text-sm py-1 h-8">View Details</Button>
+                <Button asChild className="w-full neon-button text-sm py-1 h-8">
+                  <Link to="/registration">Register Now</Link>
+                </Button>
                 </CardFooter>
               </Card>
             ))
