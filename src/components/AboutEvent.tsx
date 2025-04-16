@@ -13,10 +13,9 @@ const AboutEvent = () => {
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 relative inline-block">
-            <span className="bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent animate-gradient-background">
+            <span className="text-4xl md:text-5xl font-bold text-center mb-4 gradient-heading">
               ABOUT THE TECH FEST
             </span>
-            <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-[2px] w-24 bg-gradient-to-r from-neon-blue to-neon-purple"></span>
           </h2>
         </div>
         

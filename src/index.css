@@ -33,7 +33,7 @@
 
 @layer base {
   * {
-    @apply border-border selection:bg-neon-purple/30 selection:text-white;
+    @apply border-border selection:bg-neon-orange/30 selection:text-white;
   }
   
   html {
@@ -53,24 +53,24 @@
 @layer components {
   .neon-border {
     @apply border border-transparent relative;
-    box-shadow: 0 0 5px theme('colors.neon.purple'), 
-                inset 0 0 5px theme('colors.neon.purple');
+    box-shadow: 0 0 5px theme('colors.neon.orange'), 
+                inset 0 0 5px theme('colors.neon.orange');
     position: relative;
     z-index: 1;
   }
   
   .neon-text {
     @apply text-white relative;
-    text-shadow: 0 0 5px theme('colors.neon.purple'), 
-                 0 0 10px theme('colors.neon.purple');
+    text-shadow: 0 0 5px theme('colors.neon.orange'), 
+                 0 0 10px theme('colors.neon.orange');
   }
 
   .neon-button {
-    @apply bg-transparent border border-neon-purple px-6 py-2 rounded-md 
+    @apply bg-transparent border border-neon-orange px-6 py-2 rounded-md 
            text-white relative overflow-hidden transition-all duration-300
-           hover:bg-neon-purple/20;
-    box-shadow: 0 0 10px theme('colors.neon.purple'), 
-                inset 0 0 5px theme('colors.neon.purple');
+           hover:bg-neon-orange/20;
+    box-shadow: 0 0 10px theme('colors.neon.orange'), 
+                inset 0 0 5px theme('colors.neon.orange');
   }
   
   .parallax-layer {

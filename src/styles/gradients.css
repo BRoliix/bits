@@ -1,11 +1,11 @@
 .gradient-heading {
   background: linear-gradient(
     45deg,
-    #40ffaa,
-    #4079ff,
-    #f940ff,
-    #4079ff,
-    #40ffaa
+    #e13711,
+    #ccae03,
+    #a32307,
+    #ff0000,
+    #f32d00
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
