@@ -8,6 +8,8 @@
   import { Calendar, Mail, User, Users, Briefcase, GraduationCap, Building, School } from 'lucide-react';
 
   const Registration = () => {
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [error, setError] = useState('');
     const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({
       firstName: '',
@@ -18,7 +20,8 @@
       institutionName: '',
       role: '',
       interestedEvents: [] as string[],
-      agreeTerms: false
+      agreeTerms: false,
+      registrationId: ""
     });
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -54,13 +57,45 @@
       }
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
       e.preventDefault();
-      // In a real app, you would send the form data to your backend
-      console.log('Form submitted:', formData);
-      setStep(3); // Go to thank you page
+      setError(''); 
+      setIsSubmitting(true);
+      
+      try {
+        // Send data to backend
+        const response = await fetch(`http://localhost:5000/api/register`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+        
+        const data = await response.json();
+        
+        if (!response.ok) {
+          // Set error message from backend
+          setError(data.message || 'Registration failed. Please try again.');
+          return;
+        }
+        
+        // Store the registration ID from the backend
+        setFormData(prev => ({
+          ...prev,
+          registrationId: data.registrationId
+        }));
+        
+        // Move to thank you page
+        setStep(3);
+      } catch (error) {
+        setError('Network error. Please check your connection and try again.');
+        console.error('Registration error:', error);
+      } finally {
+        setIsSubmitting(true);
+      }
     };
-
+    
     const nextStep = () => {
       setStep(step + 1);
       window.scrollTo(0, 0);
@@ -311,10 +346,11 @@
                     <Button 
                       type="submit" 
                       className="neon-button"
-                      disabled={!formData.agreeTerms}
+                      disabled={!formData.agreeTerms || isSubmitting}
                     >
-                      Complete Registration
+                      {isSubmitting ? 'Processing...' : 'Complete Registration'}
                     </Button>
+
                   </div>
                 </form>
               </div>
@@ -331,12 +367,21 @@
                 <p className="text-white/80 mb-6">
                   Thank you for registering for BITS Tech Fest 2025! We've sent a confirmation email to <span className="text-neon-purple">{formData.email}</span> with your ticket details and QR code.
                 </p>
+                {error && (
+                  <div className="mb-4 p-3 bg-red-900/30 border border-red-500 rounded-md text-red-300">
+                  {error}
+                </div>
+                )}
+
               
                 <div className="mb-8 p-6 bg-white/5 rounded-lg inline-block">
                   <p className="text-lg font-semibold mb-2">April 30 & May 10, 2025</p>
                   <p className="text-white/70">BITS Pilani Dubai Campus</p>
                   <p className="text-white/70 mb-4">Dubai, UAE</p>
-                  <p className="text-sm">Your registration ID: <span className="text-neon-green">BTF25-{Math.floor(100000 + Math.random() * 900000)}</span></p>
+                  <p className="text-sm">Your registration ID: <span className="text-neon-green">
+                    {formData.registrationId || 'BTF25-000000'}
+                  </span></p>
+
                 </div>
               
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
