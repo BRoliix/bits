@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "builds": [
+      { "src": "package.json", "use": "@vercel/static-build" }
+    ],
+    "routes": [
+      { "src": "/(.*)", "dest": "/index.html" }
+    ],
+    "ignoreCommand": "cd api && git diff --quiet HEAD^ HEAD ./",
+    "relatedProjects": ["your-backend-project-id"]
+  }
+  
